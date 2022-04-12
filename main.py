@@ -11,9 +11,11 @@ if __name__ == '__main__':
     for mask,defect_type,img_name in mask(cvs_path,img_path,save_path):
         #if defect_type == "1":
         mask,rect_list = find_rect(mask)
-        rect_str = str(rect_list)
+        rect_str = ""
+        for i in rect_list:
+            rect_str = rect_str + ' ' + str(i)
         file.write(img_name + " " + rect_str + "\n")
-        cv.imwrite(save_dir_path + "\\" + img_name, mask)
+        #cv.imwrite(save_dir_path + "\\" + img_name, mask)
         continue
         # elif defect_type == 2:
         # elif defect_type == 3:
